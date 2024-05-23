@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "952364464309",
+    "firebase_url": "https://hoctiengtrung-ea72d-default-rtdb.firebaseio.com",
+    "project_id": "hoctiengtrung-ea72d",
+    "storage_bucket": "hoctiengtrung-ea72d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952364464309:android:8ad9e765a8398e41c226fc",
+        "android_client_info": {
+          "package_name": "com.example.apptiengtrung"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNoMcFummmG1wwy_cg8sumZOWHvNZKRB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

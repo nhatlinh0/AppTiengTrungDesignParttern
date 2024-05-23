@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.apptiengtrung">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppTiengTrung"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ChuDeActivity"></activity>
+        <activity android:name=".TuVungActivity"></activity>
+        <activity android:name=".KyNangGiaoTiepActivity"></activity>
+        <activity android:name=".MauCauGiaoTiepActivity"></activity>
+        <activity android:name=".SapXepActivity"></activity>
+        <activity android:name=".SignupActivity"></activity>
+        <activity android:name=".QuizActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".Hsk1listenActivity"></activity>
+        <activity android:name=".Hsk2listenActivity"></activity>
+        <activity android:name=".Hsk3listenActivity"></activity>
+        <activity android:name=".Hsk4listenActivity"></activity>
+        <activity android:name=".Hsk1writeActivity"></activity>
+        <activity android:name=".Hsk2writeActivity"></activity>
+        <activity android:name=".Hsk3writeActivity"></activity>
+        <activity android:name=".Hsk4writeActivity"></activity>
+        <activity android:name=".ResultActivity"></activity>
+        <activity android:name=".CRUDTuVungActivity"></activity>
+        <activity android:name=".ThemTuVungActivity"></activity>
+        <activity android:name=".QuanLyActivity"></activity>
+        <activity android:name=".DanhSachCauHoiActivity"></activity>
+        <activity android:name=".CRUDSapXepActivity"></activity>
+        <activity android:name=".ThemCauHoiActivity"></activity>
+        <activity android:name=".DanhSachHocSinhActivity"></activity>
+        <activity android:name=".CRUDDiemActivity"></activity>
+        <activity android:name=".OtherActivity"></activity>
+        <activity android:name=".DoiMatKhauActivity"></activity>
+        <activity android:name=".DanhSachTaiKhoanActivity"></activity>
+        <activity android:name=".CRUDTaiKhoanActivity"></activity>
+        <activity android:name=".ThemTaiKhoanActivity"></activity>
+        <activity android:name=".BoThuHanThuActivity"></activity>
+        <activity android:name=".BaseActivity"></activity>
+        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".MainOneActivity"></activity>
+        <activity android:name=".CaunoiActivity"></activity>
+        <activity android:name=".ListChudeActivity"></activity>
+        <activity android:name=".QuizHskActivity"></activity>
+        <activity android:name=".Nhapdulieu"></activity>
+        <activity android:name=".Xoadulieu"></activity>
+    </application>
+
+</manifest>

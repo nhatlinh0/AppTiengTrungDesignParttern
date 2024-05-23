@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable-v24/custom_button.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable-v24/custom_edt.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable/answer_background.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable/bg_course.xml" value="0.1065" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable/bg_introduce.xml" value="0.1065" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable/bg_topic.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/drawable/question_background.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/activity_base.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/activity_main.xml" value="0.16688918558077437" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/bothuhanthu_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/chude_item.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/chude_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/cruddiem_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/cruddiem_laytou.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/crudsapxep_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/crudtaikhoan_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/crudtuvung_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/danhsachcauhoi_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/danhsachhocsinh_layout.xml" value="0.22" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/danhsachtaikhoan_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/doimatkhau_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/giaovien_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hsklisten1_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hsklisten2_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hsklisten3_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hsklisten4_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hskwrite1_layout.xml" value="0.22" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hskwrite2_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hskwrite3_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/hskwrite4_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/kynanggiaotiep_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/kynanggiaotiep_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/login_layout.xml" value="0.18" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/maucaugiaotiep_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/other_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/quanly_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/quanlytuvung_layout.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/quiz_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/result_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/sapxep_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/signup_layout.xml" value="0.18" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/themcauhoi_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/themtaikhoan_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/themtuvung_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/tuvung_item.xml" value="0.203125" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung/app/src/main/res/layout/tuvung_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/drawable-v24/icon_timer.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/drawable-v24/red_bg.xml" value="0.1365" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_base.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_intro.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_list_chude.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_main1.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_main_one.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/activity_quiz.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/chude_layout.xml" value="0.1082427536231884" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/nhapdulieu.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/quiz_item_recycler_row.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/score_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/viewhold_list_chude.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/viewholder_chude.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Linh/AndroidStudioProjects/AppTiengTrung123/app/src/main/res/layout/xoadulieu.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
