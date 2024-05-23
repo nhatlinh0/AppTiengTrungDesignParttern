@@ -1,44 +1,63 @@
 package com.example.apptiengtrung;
 
+import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.GridView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class ChuDeActivity extends AppCompatActivity {
-    //    mvvm parttern
-    //    observe
-    private ChuDeViewModel viewModel;
-    private ChuDeAdapter adapter;
-    public static int[] abc =  new int[] {R.drawable.ic_heart, R.drawable.ic_drink, R.drawable.ic_animal, R.drawable.ic_family, R.drawable.ic_vacation, R.drawable.ic_mountain, R.drawable.ic_sport, R.drawable.ic_time, R.drawable.ic_fruit, R.drawable.ic_office};
+public class ChuDeAdapter extends BaseAdapter {
+    Context context;
+    List<ChuDe> list;
+
+    public ChuDeAdapter(Context context, ArrayList<ChuDe> list) {
+        this.list = list;
+        this.context = context;
+    }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.chude_layout);
+    public int getCount() {
+        return list.size();
+    }
 
-        GridView gvChuDe = findViewById(R.id.gvChuDe);
-        ImageView ivBack = findViewById(R.id.ivBack);
+    @Override
+    public Object getItem(int i) {
+        return list.get(i);
+    }
 
-        ivBack.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public long getItemId(int i) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int i, View view, ViewGroup viewGroup) {
+        View convertView = View.inflate(viewGroup.getContext(), R.layout.chude_item, null);
+        ChuDe chuDe =(ChuDe) getItem(i);
+        ImageView imgChuDe = convertView.findViewById(R.id.imgChuDe);
+        imgChuDe.setImageResource(ChuDeActivity.abc[i]);
+        TextView tvChuDeTrung = convertView.findViewById(R.id.tvChuDeTrung);
+        tvChuDeTrung.setText(chuDe.TieuDeTrung);
+        TextView tvChuDeViet = convertView.findViewById(R.id.tvChuDeViet);
+        tvChuDeViet.setText(chuDe.TieuDeViet);
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intent);
+                TuVungActivity.ChuDe = chuDe.TieuDeViet;
+                Intent intent = new Intent(context, TuVungActivity.class);
+                context.startActivity(intent);
             }
         });
+        return convertView;
+    }
 
-        adapter = new ChuDeAdapter(this, new ArrayList<>());
-        gvChuDe.setAdapter(adapter);
-
-        viewModel = new ViewModelProvider(this).get(ChuDeViewModel.class);
-        viewModel.getChuDeList().observe(this, chuDes -> {
-            adapter.updateData(chuDes);
-        });
+    public void updateData(List<ChuDe> newData) {
+        this.list = newData;
+        notifyDataSetChanged();
     }
 }
