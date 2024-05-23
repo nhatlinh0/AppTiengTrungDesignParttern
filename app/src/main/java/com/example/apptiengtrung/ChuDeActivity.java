@@ -1,63 +1,44 @@
 package com.example.apptiengtrung;
 
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class ChuDeAdapter extends BaseAdapter {
-    Context context;
-    List<ChuDe> list;
-
-    public ChuDeAdapter(Context context, ArrayList<ChuDe> list) {
-        this.list = list;
-        this.context = context;
-    }
+public class ChuDeActivity extends AppCompatActivity {
+    //    mvvm parttern
+    //    observe
+    private ChuDeViewModel viewModel;
+    private ChuDeAdapter adapter;
+    public static int[] abc =  new int[] {R.drawable.ic_heart, R.drawable.ic_drink, R.drawable.ic_animal, R.drawable.ic_family, R.drawable.ic_vacation, R.drawable.ic_mountain, R.drawable.ic_sport, R.drawable.ic_time, R.drawable.ic_fruit, R.drawable.ic_office};
     @Override
-    public int getCount() {
-        return list.size();
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.chude_layout);
 
-    @Override
-    public Object getItem(int i) {
-        return list.get(i);
-    }
+        GridView gvChuDe = findViewById(R.id.gvChuDe);
+        ImageView ivBack = findViewById(R.id.ivBack);
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        View convertView = View.inflate(viewGroup.getContext(), R.layout.chude_item, null);
-        ChuDe chuDe =(ChuDe) getItem(i);
-        ImageView imgChuDe = convertView.findViewById(R.id.imgChuDe);
-        imgChuDe.setImageResource(ChuDeActivity.abc[i]);
-        TextView tvChuDeTrung = convertView.findViewById(R.id.tvChuDeTrung);
-        tvChuDeTrung.setText(chuDe.TieuDeTrung);
-        TextView tvChuDeViet = convertView.findViewById(R.id.tvChuDeViet);
-        tvChuDeViet.setText(chuDe.TieuDeViet);
-        convertView.setOnClickListener(new View.OnClickListener() {
+        ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TuVungActivity.ChuDe = chuDe.TieuDeViet;
-                Intent intent = new Intent(context, TuVungActivity.class);
-                context.startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
             }
         });
-        return convertView;
-    }
 
-    public void updateData(List<ChuDe> newData) {
-        this.list = newData;
-        notifyDataSetChanged();
+        adapter = new ChuDeAdapter(this, new ArrayList<>());
+        gvChuDe.setAdapter(adapter);
+
+        viewModel = new ViewModelProvider(this).get(ChuDeViewModel.class);
+        viewModel.getChuDeList().observe(this, chuDes -> {
+            adapter.updateData(chuDes);
+        });
     }
 }
