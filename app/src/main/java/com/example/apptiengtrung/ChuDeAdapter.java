@@ -10,10 +10,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChuDeAdapter extends BaseAdapter {
     Context context;
-    ArrayList<ChuDe> list;
+    List<ChuDe> list;
 
     public ChuDeAdapter(Context context, ArrayList<ChuDe> list) {
         this.list = list;
@@ -53,5 +54,10 @@ public class ChuDeAdapter extends BaseAdapter {
             }
         });
         return convertView;
+    }
+
+    public void updateData(List<ChuDe> newData) {
+        this.list = newData;
+        notifyDataSetChanged();
     }
 }
