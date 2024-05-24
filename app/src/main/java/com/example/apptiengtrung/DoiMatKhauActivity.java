@@ -1,5 +1,6 @@
 package com.example.apptiengtrung;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +10,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,6 +20,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DoiMatKhauActivity extends AppCompatActivity {
+
+//    simple factory parttern
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,38 +42,39 @@ public class DoiMatKhauActivity extends AppCompatActivity {
             }
         });
 
+        // Trong phương thức onClick của nút btnDongY
         btnDongY.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 User user = ListUser.findUser(LoginActivity.username);
                 if(user.password.equals(edtMkHienTai.getText().toString()) && edtMkMoi.getText().toString().equals( edtMkMoi1.getText().toString()) && !edtMkMoi.getText().toString().equals("") && !edtMkMoi1.getText().toString().equals("") ) {
                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                     databaseReference.child("User").child(user.id+"").setValue(new User(user.id,user.username,edtMkMoi.getText().toString(),user.score,user.isTeacher,user.isAdmin));
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DoiMatKhauActivity.this);
-                    builder.setMessage("Đổi mật khẩu thành công thành công")
-                            .setTitle("Thông báo")
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    // Tạo AlertDialog thông báo đổi mật khẩu thành công
+                    AlertDialog successDialog = AlertDialogFactory.createAlertDialog(
+                            DoiMatKhauActivity.this,
+                            "Thông báo",
+                            "Đổi mật khẩu thành công",
+                            new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     Intent intent = new Intent(DoiMatKhauActivity.this, OtherActivity.class);
                                     startActivity(intent);
                                 }
-                            });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                            }
+                    );
+                    successDialog.show();
                 } else {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(DoiMatKhauActivity.this);
-                    builder.setMessage("Mật khẩu hoặc nhập lại mật khẩu không chính xác")
-                            .setTitle("Thông báo")
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-                                }
-                            });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+                    // Tạo AlertDialog thông báo lỗi
+                    AlertDialog errorDialog = AlertDialogFactory.createAlertDialog(
+                            DoiMatKhauActivity.this,
+                            "Thông báo",
+                            "Mật khẩu hoặc nhập lại mật khẩu không chính xác",
+                            null
+                    );
+                    errorDialog.show();
                 }
             }
         });
+
     }
 }
