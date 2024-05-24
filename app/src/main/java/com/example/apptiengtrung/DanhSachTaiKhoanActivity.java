@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,16 +23,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DanhSachTaiKhoanActivity extends AppCompatActivity {
-    public static ArrayList<User> list;
-    public static String[] listName = new String[] {};
+
+//    mvvm parttern
+
+    private ListView lvTaiKhoan;
+    private UserViewModel userViewModel;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.danhsachtaikhoan_layout);
 
-        list = new ArrayList<>();
-        listName = new String[]{};
-        ListView lvTaiKhoan = findViewById(R.id.lvTaiKhoan);
+        lvTaiKhoan = findViewById(R.id.lvTaiKhoan);
         ImageView ivBack = findViewById(R.id.ivBack);
+
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,48 +46,42 @@ public class DanhSachTaiKhoanActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("User").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()) {
-                    User user = (User) snap.getValue(User.class);
-                    if(!user.username.equals(LoginActivity.username)) {
-                        list.add(user);
-                    }
-                }
 
-                for (int i = 0; i<list.size(); i++) {
-                    listName = addElementToArray(listName, list.get(i).username);
-                }
-                ArrayAdapter<String> adapter = new ArrayAdapter<>(DanhSachTaiKhoanActivity.this, android.R.layout.simple_list_item_1, listName);
-                lvTaiKhoan.setAdapter(adapter);
-                lvTaiKhoan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        Intent intent = new Intent(DanhSachTaiKhoanActivity.this, CRUDTaiKhoanActivity.class);
-                        startActivity(intent);
-                        CRUDTaiKhoanActivity.id = list.get(i).id;
-                        CRUDTaiKhoanActivity.username = list.get(i).username;
-                        CRUDTaiKhoanActivity.password = list.get(i).password;
-                        CRUDTaiKhoanActivity.Diem = list.get(i).score;
-                        CRUDTaiKhoanActivity.isTeacher = list.get(i).isTeacher;
-                        CRUDTaiKhoanActivity.isAdmin = list.get(i).isAdmin;
-                    }
-                });
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
-
+        observeUserList();
     }
 
-    public String[] addElementToArray(String[] array, String newElement) {
-        String[] newArray = Arrays.copyOf(array, array.length + 1);
-        newArray[array.length] = newElement;
-        return newArray;
+    private void observeUserList() {
+        userViewModel.getUserList().observe(this, new Observer<ArrayList<User>>() {
+            @Override
+            public void onChanged(ArrayList<User> users) {
+                if (users != null) {
+                    setupListView(users);
+                }
+            }
+        });
+    }
+
+    private void setupListView(ArrayList<User> userList) {
+        ArrayList<String> listName = new ArrayList<>();
+        for (User user : userList) {
+            if (!user.username.equals(LoginActivity.username)) {
+                listName.add(user.username);
+            }
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listName);
+        lvTaiKhoan.setAdapter(adapter);
+        lvTaiKhoan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(DanhSachTaiKhoanActivity.this, CRUDTaiKhoanActivity.class);
+                startActivity(intent);
+                CRUDTaiKhoanActivity.id = userList.get(i).id;
+                CRUDTaiKhoanActivity.username = userList.get(i).username;
+                CRUDTaiKhoanActivity.password = userList.get(i).password;
+                CRUDTaiKhoanActivity.Diem = userList.get(i).score;
+                CRUDTaiKhoanActivity.isTeacher = userList.get(i).isTeacher;
+                CRUDTaiKhoanActivity.isAdmin = userList.get(i).isAdmin;
+            }
+        });
     }
 }
