@@ -11,6 +11,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TuVungAdapter extends BaseAdapter {
     Context context;
@@ -45,7 +46,7 @@ public class TuVungAdapter extends BaseAdapter {
         tvphienAm.setText(tuVung.PhienAm);
         TextView tvTuVungViet = (TextView) convertView.findViewById(R.id.tvTuVungViet);
         tvTuVungViet.setText(tuVung.Viet);
-        if(ListUser.checkTeacher(LoginActivity.username)) {
+        if(ListUser.checkTeacher(LoginActivity.username) || ListUser.checkAdmin(LoginActivity.username)) {
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -59,5 +60,11 @@ public class TuVungAdapter extends BaseAdapter {
             });
         }
         return convertView;
+    }
+
+    public void setTuVungList(List<TuVung> newTuVungList) {
+        list.clear();
+        list.addAll(newTuVungList);
+        notifyDataSetChanged();
     }
 }
