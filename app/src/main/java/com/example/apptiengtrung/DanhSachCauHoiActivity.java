@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,15 +23,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DanhSachCauHoiActivity extends AppCompatActivity {
-    public static ArrayList<SapXep> list;
-    public static String[] listName = new String[] {};
+
+//    mvvm parttern
+
+    private ListView lvCauHoi;
+    private SapXepViewModel sapXepViewModel;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.danhsachcauhoi_layout);
 
-        list = new ArrayList<>();
-        listName = new String[]{};
-        ListView lvCauHoi = findViewById(R.id.lvCauhoi);
+        lvCauHoi = findViewById(R.id.lvCauhoi);
         ImageView ivBack = findViewById(R.id.ivBack);
 
         ivBack.setOnClickListener(new View.OnClickListener() {
@@ -40,17 +45,13 @@ public class DanhSachCauHoiActivity extends AppCompatActivity {
             }
         });
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("SapXep").addValueEventListener(new ValueEventListener() {
+        sapXepViewModel = new ViewModelProvider(this).get(SapXepViewModel.class);
+        sapXepViewModel.getSapXepListLiveData().observe(this, new Observer<ArrayList<SapXep>>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot snap : snapshot.getChildren()) {
-                    SapXep sx = (SapXep) snap.getValue(SapXep.class);
-                    list.add(sx);
-                }
-
-                for (int i = 0; i<list.size(); i++) {
-                    listName = addElementToArray(listName, list.get(i).Trung);
+            public void onChanged(ArrayList<SapXep> sapXeps) {
+                ArrayList<String> listName = new ArrayList<>();
+                for (SapXep sapXep : sapXeps) {
+                    listName.add(sapXep.Trung);
                 }
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(DanhSachCauHoiActivity.this, android.R.layout.simple_list_item_1, listName);
                 lvCauHoi.setAdapter(adapter);
@@ -59,25 +60,15 @@ public class DanhSachCauHoiActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                         Intent intent = new Intent(DanhSachCauHoiActivity.this, CRUDSapXepActivity.class);
                         startActivity(intent);
-                        CRUDSapXepActivity.id = list.get(i).id;
-                        CRUDSapXepActivity.tieuDeTrung = list.get(i).Trung;
-                        CRUDSapXepActivity.tieuDeViet = list.get(i).Viet;
-                        CRUDSapXepActivity.phienAm = list.get(i).PhienAm;
+                        CRUDSapXepActivity.id = sapXeps.get(i).id;
+                        CRUDSapXepActivity.tieuDeTrung = sapXeps.get(i).Trung;
+                        CRUDSapXepActivity.tieuDeViet = sapXeps.get(i).Viet;
+                        CRUDSapXepActivity.phienAm = sapXeps.get(i).PhienAm;
                     }
                 });
             }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
         });
-
-
-    }
-
-    public String[] addElementToArray(String[] array, String newElement) {
-        String[] newArray = Arrays.copyOf(array, array.length + 1);
-        newArray[array.length] = newElement;
-        return newArray;
     }
 }
+
+
