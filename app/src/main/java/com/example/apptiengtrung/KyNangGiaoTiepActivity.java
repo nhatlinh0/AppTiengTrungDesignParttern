@@ -12,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class KyNangGiaoTiepActivity extends AppCompatActivity {
+
+//    Factory Method Pattern
+
     public static ArrayList<KyNangGiaoTiep> list;
     public String[] listChaoHoi = new String[] {"Xin chào", "Chào buổi sáng", "Chào buổi trưa", "Chào buổi tối", "Chúc ngủ ngon",
     "Bạn có khoẻ không?", "Cảm ơn, tôi khoẻ","Tốt","OK","Tương đối"};
@@ -28,16 +31,16 @@ public class KyNangGiaoTiepActivity extends AppCompatActivity {
         setContentView(R.layout.kynanggiaotiep_layout);
 
         list = new ArrayList<>();
-        list.add(new KyNangGiaoTiep(1,"Chào hỏi & giới thiệu", R.drawable.ic_handshake,listChaoHoi));
-        list.add(new KyNangGiaoTiep(2,"Hội thoại hằng ngày", R.drawable.ic_message,listHoiThoai));
-        list.add(new KyNangGiaoTiep(3,"Số đếm & thứ tự", R.drawable.ic_number,listSoDem));
-        list.add(new KyNangGiaoTiep(4,"Thời gian & ngày tháng", R.drawable.ic_time,listNgayThang));
-        list.add(new KyNangGiaoTiep(5,"Chỉ dẫn & địa điểm", R.drawable.ic_map,listDiaDiem));
-        list.add(new KyNangGiaoTiep(6,"Giao thông & phương tiện", R.drawable.ic_car,listChaoHoi));
-        list.add(new KyNangGiaoTiep(7,"Nơi cư trú & ăn nghỉ", R.drawable.ic_bed,listChaoHoi));
-        list.add(new KyNangGiaoTiep(8,"Thực phẩm & nhà hàng", R.drawable.ic_restaurant,listChaoHoi));
-        list.add(new KyNangGiaoTiep(9,"Mua sắm & giá cả", R.drawable.ic_shopping,listChaoHoi));
-        list.add(new KyNangGiaoTiep(10,"Các quốc gia", R.drawable.ic_earth,listChaoHoi));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(1,"Chào hỏi & giới thiệu", R.drawable.ic_handshake,listChaoHoi));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(2,"Hội thoại hằng ngày", R.drawable.ic_message,listHoiThoai));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(3,"Số đếm & thứ tự", R.drawable.ic_number,listSoDem));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(4,"Thời gian & ngày tháng", R.drawable.ic_time,listNgayThang));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(5,"Chỉ dẫn & địa điểm", R.drawable.ic_map,listDiaDiem));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(6,"Giao thông & phương tiện", R.drawable.ic_car,listChaoHoi));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(7,"Nơi cư trú & ăn nghỉ", R.drawable.ic_bed,listChaoHoi));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(8,"Thực phẩm & nhà hàng", R.drawable.ic_restaurant,listChaoHoi));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(9,"Mua sắm & giá cả", R.drawable.ic_shopping,listChaoHoi));
+        list.add(KyNangGiaoTiepFactory.createKyNangGiaoTiep(10,"Các quốc gia", R.drawable.ic_earth,listChaoHoi));
 //        list.add(new KyNangGiaoTiep(11,"Gia đình", R.drawable.ic_family,listChaoHoi));
 //        list.add(new KyNangGiaoTiep(12,"Hẹn hò", R.drawable.ic_heart,listChaoHoi));
 //        list.add(new KyNangGiaoTiep(13,"Tình huống khẩn cấp", R.drawable.ic_plus,listChaoHoi));
