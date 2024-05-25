@@ -24,6 +24,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class SapXepActivity extends AppCompatActivity {
+//    mvvm parttern
+//    observe
+
     public static String title;
     public ArrayList<SapXep> list;
     ImageView ivBack;
